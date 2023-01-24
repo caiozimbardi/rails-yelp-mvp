@@ -16,6 +16,14 @@
 </ul>
 
 <hr>
+<h2>Average Rating</h2>
+  <% rating = 0.0 %>
+  <% @restaurant.reviews.each do |review| %>
+      <% rating += review.rating %>
+  <% end %>
+  <% final_rating = (rating / @restaurant.reviews.length).round(2) %>
+  <%= final_rating %>⭐
+<hr>
 
 <%= link_to "Add Review", new_restaurant_review_path(@restaurant) %>
 <br>
